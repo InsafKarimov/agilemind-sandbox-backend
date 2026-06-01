@@ -13,7 +13,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://agilemind-sandbox-frontend.netlify.app'
+    'https://dancing-figolla-bad99d.netlify.app'
   ],
   credentials: true
 }));
@@ -213,7 +213,7 @@ const io = socketIo(server, {
   cors: {
     origin: [
       'http://localhost:3000',
-      'https://agilemind-sandbox-frontend.netlify.app'
+      'https://dancing-figolla-bad99d.netlify.app'
     ],
     credentials: true
   }
