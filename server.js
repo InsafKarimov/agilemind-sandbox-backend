@@ -11,7 +11,10 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000',
+    'https://agilemind-sandbox-frontend.netlify.app'
+  ],
   credentials: true
 }));
 app.use(express.json());
@@ -208,7 +211,10 @@ app.post('/api/learning', auth, async (req, res) => {
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: [
+      'http://localhost:3000',
+      'https://agilemind-sandbox-frontend.netlify.app'
+    ],
     credentials: true
   }
 });
