@@ -17,13 +17,20 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-const pool = new Pool({
-  user: 'postgres',
-  password: 'Karimovinsaf2004',     
-  host: 'localhost',
-  port: 5432,
-  database: 'agilemind_sandbox'
-});
+const pool = new Pool(
+  process.env.DATABASE_URL
+    ? {
+        connectionString: process.env.DATABASE_URL,
+        ssl: { rejectUnauthorized: false }
+      }
+    : {
+        user: 'postgres',
+        password: 'Karimovinsaf2004',
+        host: 'localhost',
+        port: 5432,
+        database: 'agilemind_sandbox'
+      }
+);
 
 // ===== ИНИЦИАЛИЗАЦИЯ БАЗЫ ДАННЫХ =====
 const initDB = async () => {
