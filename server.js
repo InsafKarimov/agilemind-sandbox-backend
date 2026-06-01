@@ -277,4 +277,7 @@ io.on('connection', async (socket) => {
 });
 
 const PORT = process.env.PORT || 5002;
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', message: 'Backend is alive' });
+});
 server.listen(PORT, () => console.log(`🚀 Сервер на http://localhost:${PORT}`));
